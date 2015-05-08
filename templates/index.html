@@ -14,17 +14,17 @@
     <div class="pattern-overlay">
       <div class="container">
         <div class="row">
-          {% url 'rate_mesh' mesh.id as rate_url %}
-          <div class="stars" id="{{ mesh.id }}" rate-url="{{ rate_url }}">
+          {% url 'rate_object' object.id as rate_url %}
+          <div class="stars" id="{{ object.id }}" rate-url="{{ rate_url }}">
             <h3>
               {% for i in "54321" %}
               <input class="star star-{{ i }}"
-              id="star-{{ i }}-{{ mesh.id }}"
+              id="star-{{ i }}-{{ object.id }}"
               type="radio"
-              name="{{ mesh.id }}"
+              name="{{ object.id }}"
               value="{{ i }}"/>
               <label class="star star-{{ i }}"
-              for="star-{{ i }}-{{ mesh.id }}"></label>
+              for="star-{{ i }}-{{ object.id }}"></label>
               {% endfor %}
             </h3>
           </div>
@@ -39,6 +39,6 @@
 <script src="{% static "js/rating.js" %}"></script>
 <script src="{% static "js/getCookie.js" %}"></script>
 <script>
-$("#star-{{ mesh.rating }}-{{ mesh.id }}").attr("checked", true);
+$("#star-{{ object.rating }}-{{ object.id }}").attr("checked", true);
 </script>
 {% endblock %}
