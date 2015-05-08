@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>5-Star Rating System for Django</title>
+  <link href="{% static "css/rating.css" %}" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <section class="content-section model-viewer">
+    <div class="pattern-overlay">
+      <div class="container">
+        <div class="row">
+          {% url 'rate_mesh' mesh.id as rate_url %}
+          <div class="stars" id="{{ mesh.id }}" rate-url="{{ rate_url }}">
+            <h3>
+              {% for i in "54321" %}
+              <input class="star star-{{ i }}"
+              id="star-{{ i }}-{{ mesh.id }}"
+              type="radio"
+              name="{{ mesh.id }}"
+              value="{{ i }}"/>
+              <label class="star star-{{ i }}"
+              for="star-{{ i }}-{{ mesh.id }}"></label>
+              {% endfor %}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+
+{% block foot %}
+<script src="{% static "js/rating.js" %}"></script>
+<script src="{% static "js/getCookie.js" %}"></script>
+<script>
+$("#star-{{ mesh.rating }}-{{ mesh.id }}").attr("checked", true);
+</script>
+{% endblock %}

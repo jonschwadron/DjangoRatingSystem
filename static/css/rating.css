@@ -1,0 +1,55 @@
+/*rating system*/
+div.stars {
+  width: 165px;
+  margin-left: auto;
+  margin-right: auto;
+  direction: rtl;
+}
+
+input.star {
+  display: none;
+}
+
+label.star {
+  padding: 3px;
+  font-size: 24px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #65cdf4;
+  transition: all .30s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #65cdf4;
+  text-shadow: 0 0 20px #e22733;
+}
+
+input.star-3:checked ~ label.star:before {
+  color: #5ab8db;
+}
+
+input.star-2:checked ~ label.star:before {
+  color: #50a4c3;
+}
+
+input.star-1:checked ~ label.star:before {
+  color: #468faa;
+}
+
+label.star:hover {
+  transform: rotate(-10deg) scale(1.2);
+  color: #65cdf4;
+}
+
+label.star:hover ~ label {
+  color: #65cdf4;
+}
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
