@@ -2,17 +2,17 @@
 
 This 5-star rating system is designed to work with Django 1.8 and comes with CSRF protection.
 
-### Version
+## Version
 1.0
 
-### Installation
+## Installation
 
-## models.py
+### models.py
 ```sh
 rating = IntegerField(max_length=20, default=0)
 ```
 
-## views.py
+### views.py
 ```sh
 def rate_object(request, object_pk):
     object = get_object_or_404(Mesh.objects.all(), id=mesh_pk)
@@ -23,7 +23,7 @@ def rate_object(request, object_pk):
     return Response(status=status.HTTP_200_OK)
 ```
 
-## urls.py
+### urls.py
 ```sh
 url(r'^yourapp/rate/(?P<object_pk>\d+)/',
     yourapp.views.rate_object,
