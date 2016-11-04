@@ -10,7 +10,7 @@ rating = IntegerField(max_length=20, default=0)
 #### views.py
 ```sh
 def rate_object(request, object_pk):
-    object = get_object_or_404(Mesh.objects.all(), id=mesh_pk)
+    object = get_object_or_404(User.objects.all(), id=user_pk)
     if not 'rating' in request.DATA:
         return Response(status=status.HTTP_400_BAD_REQUEST)
     object.rating = request.DATA['rating']
